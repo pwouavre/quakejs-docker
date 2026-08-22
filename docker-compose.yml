@@ -1,10 +1,21 @@
 services:
-    quakejs:
-        container_name: quakejs
-        build:
-            context: .
-            dockerfile: Dockerfile
-        image: treyyoder/quakejs:latest
-        restart: unless-stopped
-        ports:
-            - "8080:80"
+  quakejs:
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    container_name: quakejs
+    volumes:
+      - /mnt/exdisk/k8s/pvc/quake/server.cfg:/quakejs/base/baseq3/server.cfg
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    labels: # labels in Compose file instead of Dockerfile
+      homepage.name: "QuakeJs"
+      homepage.icon: "quake.png"
+      homepage.href: "https://quake.beltodev.org"
+      homepage.group: "Games"
+      homepage.description: "Quake III!!!"
+    extra_hosts:
+      - "jesus.home:192.168.1.84"
+
+    
