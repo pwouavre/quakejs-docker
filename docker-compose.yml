@@ -7,7 +7,7 @@ services:
     volumes:
       - /mnt/exdisk/k8s/pvc/quake/server.cfg:/quakejs/base/baseq3/server.cfg
     ports:
-      - 8080:8080
+      - 8080:80
     restart: unless-stopped
     labels: # labels in Compose file instead of Dockerfile
       homepage.name: "QuakeJs"
