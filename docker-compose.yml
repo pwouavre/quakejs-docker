@@ -6,6 +6,8 @@ services:
     container_name: quakejs
     volumes:
       - /mnt/exdisk/k8s/pvc/quake/server.cfg:/quakejs/base/baseq3/server.cfg
+      - /mnt/exdisk/k8s/pvc/quake/autoexec.cfg:/quakejs/base/baseq3/autoexec.cfg
+      - /mnt/exdisk/k8s/pvc/quake/autoexec.cfg:/var/www/html/baseq3/autoexec.cfg
     ports:
       - 8080:80
     restart: unless-stopped
