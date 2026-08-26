@@ -66,7 +66,7 @@
 					window.location.href = '/';
 				};
 				window.addEventListener('resize', resizeViewport);
-				var args = ['+set', 'fs_cdn', window.location.host, '+connect', window.location.hostname + ':' + (window.location.port || (window.location.protocol === 'https:' ? '443' : '80'))];
+				var args = ['+set', 'fs_cdn', window.location.host, '+exec', 'autoexec.cfg', '+connect', window.location.hostname + ':' + (window.location.port || (window.location.protocol === 'https:' ? '443' : '80'))];
 				args.push.apply(args, getQueryCommands());
 				ioq3.callMain(args);
 			};
