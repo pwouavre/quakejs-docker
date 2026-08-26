@@ -49,7 +49,7 @@ RUN rm -f /var/www/html/index.html \
 COPY include/assets/ /var/www/html/assets
 COPY include/assets/index.html /var/www/html/index.html
 COPY include/assets/game.css /var/www/html/game.css
-RUN mkdir -p /var/www/html/baseq3 && cp include/assets/baseq3/autoexec.cfg /var/www/html/baseq3/autoexec.cfg
+RUN mkdir -p /var/www/html/baseq3 && cp /var/www/html/assets/baseq3/autoexec.cfg /var/www/html/baseq3/autoexec.cfg
 
 WORKDIR /
 COPY --chmod=755 entrypoint.sh /entrypoint.sh
