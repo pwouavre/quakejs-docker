@@ -32,7 +32,6 @@ RUN jq 'del(.dependencies["quakejs-files"]) | del(.devDependencies["quakejs-file
 
 COPY server.cfg /quakejs/base/baseq3/server.cfg
 COPY server.cfg /quakejs/base/cpma/server.cfg
-COPY include/assets/baseq3/autoexec.cfg /quakejs/base/baseq3/autoexec.cfg
 COPY include/ioq3ded/ioq3ded.fixed.js /quakejs/build/ioq3ded.js
 
 RUN rm -f /var/www/html/index.html \
@@ -47,9 +46,6 @@ RUN rm -f /var/www/html/index.html \
 	&& sed -i 's#</VirtualHost>#\tRewriteEngine On\n\tRewriteCond %{HTTP:Upgrade} =websocket [NC]\n\tRewriteRule ^/(.*)$ ws://127.0.0.1:27960/$1 [P,L]\n</VirtualHost>#' /etc/apache2/sites-available/000-default.conf \
 	&& apache2ctl configtest
 COPY include/assets/ /var/www/html/assets
-COPY include/assets/index.html /var/www/html/index.html
-COPY include/assets/game.css /var/www/html/game.css
-RUN mkdir -p /var/www/html/baseq3 && cp /var/www/html/assets/baseq3/autoexec.cfg /var/www/html/baseq3/autoexec.cfg
 
 WORKDIR /
 COPY --chmod=755 entrypoint.sh /entrypoint.sh
