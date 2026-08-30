@@ -12,21 +12,21 @@ set -eu
 # ============================================================
 
 cat > /tmp/client_cmds.js << 'ENDOFCLIENTCMDS'
+    // Bind commands must be single strings because only +set/+connect
+    // are special-cased in ioq3's argv parser; generic +commands only
+    // get the command name, not subsequent argv elements.
     args.push(
-        "bind", "z",    "+forward",
-        "bind", "s",    "+back",
-        "bind", "q",    "+moveleft",
-        "bind", "d",    "+moveright",
-        "bind", "SPACE","+moveup",
-        "bind", "c",    "+movedown",
-        "bind", "SHIFT","+speed",
-
+        "+bind z \"+forward\"",
+        "+bind s \"+back\"",
+        "+bind q \"+moveleft\"",
+        "+bind d \"+moveright\"",
+        "+bind SPACE \"+moveup\"",
+        "+bind c \"+movedown\"",
+        "+bind SHIFT \"+speed\"",
         "+set", "sensitivity", "5",
         "+set", "m_filter",    "0",
-
         "+set", "r_fullscreen", "1",
         "+set", "r_colorbits",  "32",
-
         "+set", "s_volume", "0.8"
     );
 ENDOFCLIENTCMDS
