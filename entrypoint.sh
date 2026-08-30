@@ -12,21 +12,21 @@ set -eu
 # ============================================================
 
 cat > /tmp/client_cmds.js << 'ENDOFCLIENTCMDS'
+    // Each bind must be a single string: ioq3's argv parser only special-cases
+    // +set and +connect (consuming the next N args). All other +commands get
+    // only argv[i]+1 — subsequent argv elements are NOT consumed as arguments.
     args.push(
-        "+bind", "z",    "+forward",
-        "+bind", "s",    "+back",
-        "+bind", "q",    "+moveleft",
-        "+bind", "d",    "+moveright",
-        "+bind", "SPACE","+moveup",
-        "+bind", "c",    "+movedown",
-        "+bind", "SHIFT","+speed",
-
+        "+bind z \"+forward\"",
+        "+bind s \"+back\"",
+        "+bind q \"+moveleft\"",
+        "+bind d \"+moveright\"",
+        "+bind SPACE \"+moveup\"",
+        "+bind c \"+movedown\"",
+        "+bind SHIFT \"+speed\"",
         "+set", "sensitivity", "5",
         "+set", "m_filter",    "0",
-
         "+set", "r_fullscreen", "1",
         "+set", "r_colorbits",  "32",
-
         "+set", "s_volume", "0.8"
     );
 ENDOFCLIENTCMDS
