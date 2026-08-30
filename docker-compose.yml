@@ -6,6 +6,7 @@ services:
     container_name: quakejs
     volumes:
       - /mnt/exdisk/k8s/pvc/quake/server.cfg:/quakejs/base/baseq3/server.cfg
+      - /mnt/exdisk/k8s/pvc/quake/client.cfg:/quakejs/base/baseq3/client.cfg
       - /mnt/exdisk/k8s/pvc/quake/entrypoint.sh:/entrypoint.sh:ro
     ports:
       - 8080:80
