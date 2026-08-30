@@ -13,13 +13,13 @@ set -eu
 
 cat > /tmp/client_cmds.js << 'ENDOFCLIENTCMDS'
     args.push(
-        "+bind", "z",    "+forward",
-        "+bind", "s",    "+back",
-        "+bind", "q",    "+moveleft",
-        "+bind", "d",    "+moveright",
-        "+bind", "SPACE","+moveup",
-        "+bind", "c",    "+movedown",
-        "+bind", "SHIFT","+speed",
+        "bind", "z",    "+forward",
+        "bind", "s",    "+back",
+        "bind", "q",    "+moveleft",
+        "bind", "d",    "+moveright",
+        "bind", "SPACE","+moveup",
+        "bind", "c",    "+movedown",
+        "bind", "SHIFT","+speed",
 
         "+set", "sensitivity", "5",
         "+set", "m_filter",    "0",
